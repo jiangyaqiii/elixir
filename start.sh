@@ -29,6 +29,7 @@ fi
 
 # 提示用户输入环境变量的值
 # read -p "请输入验证者节点设备的IP地址: " ip_address
+ip_address=$(curl -s4 ifconfig.me/ip)
 # read -p "请输入验证者节点的显示名称: " validator_name
 # read -p "请输入验证者节点的奖励收取地址: " safe_public_address
 # read -p "请输入签名者私钥,无需0x: " private_key
