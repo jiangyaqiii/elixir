@@ -28,10 +28,10 @@ fi
 # 节点安装功能
 
 # 提示用户输入环境变量的值
-read -p "请输入验证者节点设备的IP地址: " ip_address
-read -p "请输入验证者节点的显示名称: " validator_name
-read -p "请输入验证者节点的奖励收取地址: " safe_public_address
-read -p "请输入签名者私钥,无需0x: " private_key
+# read -p "请输入验证者节点设备的IP地址: " ip_address
+# read -p "请输入验证者节点的显示名称: " validator_name
+# read -p "请输入验证者节点的奖励收取地址: " safe_public_address
+# read -p "请输入签名者私钥,无需0x: " private_key
 
 # 将环境变量保存到 validator.env 文件
 cat <<EOF > validator.env
@@ -48,23 +48,11 @@ echo "环境变量已设置并保存到 validator.env 文件。"
 # 拉取 Docker 镜像
 docker pull elixirprotocol/validator:v3
 
-# 提示用户选择平台
-read -p "您是否在Apple/ARM架构上运行？(y/n): " is_arm
-
-if [[ "$is_arm" == "y" ]]; then
-    # 在Apple/ARM架构上运行
-    docker run -it -d \
-      --env-file validator.env \
-      --name elixir \
-      --platform linux/amd64 \
-      elixirprotocol/validator:v3
-else
-    # 默认运行
-    docker run -it -d \
-      --env-file validator.env \
-      --name elixir \
-      elixirprotocol/validator:v3
-fi
+# 默认运行
+docker run -it -d \
+    --env-file validator.env \
+    --name elixir \
+    elixirprotocol/validator:v3
 
 cd
 rm start.sh
