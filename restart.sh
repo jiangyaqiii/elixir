@@ -18,6 +18,7 @@ echo "环境变量已设置并保存到 validator.env 文件。"
 
 
 docker_id=$(docker ps | grep "elixir" | awk '{print $1}')
+echo $docker_id
 docker stop $docker_id
 docker rm $docker_id
 # 拉取 Docker 镜像
