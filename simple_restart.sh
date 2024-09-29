@@ -19,4 +19,4 @@ docker run -it -d \
     elixirprotocol/validator:v3
 
 cd
-rm start.sh
+rm simple_restart.sh
