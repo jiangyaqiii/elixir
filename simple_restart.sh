@@ -2,7 +2,7 @@
 # 节点安装功能
 # 提示用户输入环境变量的值
 # read -p "请输入验证者节点设备的IP地址: " ip_address
-echo "================flag:v1================"
+echo "================flag:v2================"
 ip_address=$(curl -s4 ifconfig.me/ip)
 
 # 将环境变量保存到 validator.env 文件
