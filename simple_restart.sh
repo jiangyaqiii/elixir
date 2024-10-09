@@ -7,7 +7,7 @@ ip_address=$(curl -s4 ifconfig.me/ip)
 
 # 将环境变量保存到 validator.env 文件
 
-docker_id=$(docker ps | grep "elixir" | awk '{print $1}')
+docker_id=$(docker ps -a | grep "elixir" | awk '{print $1}')
 echo $docker_id
 docker stop $docker_id
 docker rm $docker_id
